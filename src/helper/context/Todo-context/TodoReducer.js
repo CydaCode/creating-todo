@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATED_TODO } from "./TodoType";
+import { ADD_TODO, DELETE_TODO, LOAD_TODO, TOGGLE_TODO, UPDATED_TODO } from "./TodoType";
 
 
 const TodoReducer = (state, action) => {
@@ -8,6 +8,12 @@ const TodoReducer = (state, action) => {
         return {
             ...state,
             todos: [...state.todos, payload]
+        }
+
+        case LOAD_TODO: 
+        return {
+            ...state,
+            todos: payload
         }
 
         case DELETE_TODO:
@@ -33,13 +39,14 @@ const TodoReducer = (state, action) => {
                         return todo
                     }
                 })
+
             }
         
             case UPDATED_TODO:
                 return {
                     ...state,
                     todos: state.todos.map((todo) =>
-                    todo.id === payload.id ? {...todo, title: payload.title} : todo
+                    todo.id === payload.id ? {...todo, item: payload.item} : todo
                     )
                 }
           

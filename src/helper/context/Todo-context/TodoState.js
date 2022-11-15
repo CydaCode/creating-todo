@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import TodoContext from "./TodoContex";
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATED_TODO } from "./TodoType";
+import { ADD_TODO, DELETE_TODO, LOAD_TODO, TOGGLE_TODO, UPDATED_TODO } from "./TodoType";
 import TodoReducer from "./TodoReducer";
 
 export const TodoState =({children})=> {
@@ -33,12 +33,21 @@ export const TodoState =({children})=> {
     }
 
 
+     // For LOAD todo
+     const loadTodos =(todoObject)=> {
+        dispatch({type: LOAD_TODO, payload: todoObject})
+    }
+
+
+
+
     return <TodoContext.Provider value={{
         todos: state.todos,
         addTodo,
         deleteTodo,
         toggleTodo,
         updatedTodos,
+        loadTodos,
         ...state
     }}>{children}</TodoContext.Provider>
 }
