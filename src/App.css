@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color:aquamarine;
+  height: 100vh;
+  width: 100%;
+}
+
+input {
+  padding: 0.3rem 0.8rem;
+  width: 50%;
+}
+
+.todo-input button {
+  width: 30%;
+  padding: 0.3rem 
+}
+
+.edit-btn {
+  width: 30%;
+  padding: 0.3rem;
+  background: dodgerblue;
+  border: none;
+  color: white;
+}
+
+ul{
+  list-style-position: outside;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.action-btn {
+  margin: 8px 2px;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
